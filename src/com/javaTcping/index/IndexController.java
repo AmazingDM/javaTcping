@@ -5,24 +5,30 @@ import com.javaTcping.common.Ping;
 import com.jfinal.core.Controller;
 
 /**
- * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
- * 详见 JFinal 俱乐部: http://jfinal.com/club
+ * 视图渲染控制器
  * 
- * IndexController
+ * @author DM
+ * @E-mail amazingdmdd@gmail.com
+ * @version 1.0.0 创建时间：2018年6月25日上午8:42:37
  */
 public class IndexController extends Controller {
     public void index() {
         JSONObject jsonObject = new JSONObject();
-        String ip = getPara("ip");
-        String port = getPara("port");
+        String callback = getPara("callback");
         try {
+            String ip = getPara("ip");
+            String port = getPara("port");
             String[] resp = Ping.tcping(ip, port).split(":");
             jsonObject.put("status", resp[0]);
             jsonObject.put("ms", resp[1]);
         } catch (Exception e) {
-            // TODO: handle exception
+            jsonObject.put("msg", "error");
         }
-        renderJson(jsonObject);
+        if (callback != null) {
+            renderJson(callback + "(" + jsonObject + ")");
+        } else {
+            renderJson(jsonObject);
+        }
     }
 
     public void hello() {
