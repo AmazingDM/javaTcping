@@ -11,9 +11,7 @@ java -jar javaTcping.jar 端口号
 
 举个栗子：
 
-*支持JSONP跨域请求。*
-
-访问API:http://cn-gz.sakurateam.top:81/?ip=1.1.1.1&port=80
+访问API(*支持JSONP跨域请求。*):http://cn-gz.sakurateam.top:81/?ip=1.1.1.1&port=80
 
 
 返回结果为JSON格式：
