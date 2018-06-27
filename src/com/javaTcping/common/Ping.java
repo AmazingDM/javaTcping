@@ -84,12 +84,8 @@ public class Ping {
                 result = Long.toString(connectFinish - connectStart) + "ms";
                 ms = Long.toString(connectFinish - connectStart);
                 status = "true";
-            } else if (failure != null) {
-                result = failure.toString();
-                ms = "0";
-                status = "false";
             } else {
-                result = "Timed out";
+                result = "false";
                 ms = "0";
                 status = result;
             }
