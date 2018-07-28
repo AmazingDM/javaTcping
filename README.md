@@ -18,6 +18,6 @@ java -jar javaTcping.jar 端口号
 ```
 {
   "ms": "154",//延迟
-  "status": "true"//状态
+  "status": "true"//端口状态
 }
 ```
